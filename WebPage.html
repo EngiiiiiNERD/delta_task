@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>WEB PAGE</title>
+	<style type="text/css">
+	body{
+		background:orange;
+	}
+	
+		#mySpan{border:2px solid black;}
+		#mySpan:hover{
+			 cursor: pointer;
+}
+
+
+#myInput{margin-left: 35%;
+	width:30%;
+margin-right: 35%;
+
+ border-radius: 5px;
+  border:2px solid red;}
+		.close:hover{
+			cursor: pointer;
+		}
+
+		#good:hover
+		{
+			cursor: pointer;
+		}
+
+		span{
+			color: red;
+			background: black;
+			width: 20px;
+			text-align: center;
+			height:20px;
+		}
+		.close{
+border:2px solid black;
+position: absolute;
+right:0;
+
+		}
+		.checked {
+    color: orange;
+}
+		#photo{
+			width:15px;
+			height:15px;
+		}
+		
+	.checked {
+    color: orange;}
+    #div1 {
+  font-size:48px;
+}
+.heart{color:red;}
+.One{background:  #96ceb4;}
+.Two{background:#ffeead }
+.Three{background:#ffcc5c}
+.Four{background:#ff6f69 }
+.Five{background:#f2ae72 }
+h1{
+	color:red;
+	background:black ;
+	border-radius: 20px;
+	text-align: center;
+}
+.start{
+	color: red;
+	background: black;
+		border-radius: 20px;
+	text-align: center;
+	font-size: 25px;
+}
+#myComment{
+	font-size:15px;
+}
+#rate{width: 100px;
+        }
+.user{border:2px double black;
+background:	#00008B;
+color:white;}  
+/*Nav bar*/ 
+.topnav {
+  overflow: hidden;
+  background-color: black;
+
+}
+
+.topnav a {
+  float: left;
+  color: red;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: red;
+  color: white;
+} 
+
+#myComment{
+  margin-left: 20%;
+  margin-right:20%;
+  height: 60px;
+  width:60%;
+  border-radius: 10px;
+  border:2px solid red;
+}    
+p{
+	border: 5px solid red;
+	background: black;
+	color: red;
+padding-left: 20px; 
+padding-top: 10px;
+padding-bottom: 10px;
+border-radius: 10px;
+
+}
+#me{
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: relative;
+    animation: mymove 10s infinite;
+     from {left:0%}
+    to {left:90%;}
+}
+
+
+
+@keyframes mymove {
+    from {left:0%}
+    to {left:90%;}
+}
+
+#image{margin-left:43%;
+      width:14%;
+      margin-left: 43%; 
+       }
+#rate{margin-left:43%;
+      width:14%;
+      margin-left: 43%; }
+      #mySpan{margin-left:40%;
+      width:14%;
+      margin-left: 46%;
+      border:2px solid red;
+      padding: 4px;}
+
+
+</style>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+	<div class="topnav">
+  <a class="active" href="#home">Home</a>
+ 
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+
+</div>
+
+	<h1>FEEDBACK</h1>
+
+	<hr>
+
+<p class="start"><img src="g.png" width="20px"> UserName :-</p>	<form>					 
+<input type="text" id="myInput" placeholder="UserName" required>
+
+<hr>
+<img id="me" src="c.png" width="100px" height="50px">
+<p class="start"> Comment Section...</p>
+
+<input type="text" id="myComment"  placeholder="Drop your comment...." required>
+<hr>
+<img src="f.png" width="100px" height="80px" id="image">
+
+<div class="s"></div>
+
+ <br><select id="rate" required>
+	<option value="">RATEUS</option>
+	<option value="1"> &#9829;</option>
+	<option value="2">&#9829; &#9829;</option>
+	<option value="3">&#9829; &#9829; &#9829;</option>
+	<option value="4">&#9829; &#9829; &#9829; &#9829;</option>
+	<option value="5">&#9829; &#9829; &#9829; &#9829; &#9829;</option>
+</select>
+
+
+
+<hr>
+<span id="mySpan" onclick="myFunction()">ADD</span>
+</form>
+<ul id="myUL">
+	<li>MENTEE PROFILE | COMMENT | RATING</li>
+	<hr>
+</ul>
+<ul id="set"></ul>
+
+
+<span id="good" onclick="sort()">SORTING</span>
+
+<ul id="mySort">
+	
+</ul>
+
+<p><b>NOTE:-</b> <i>To access all the local data stored...<br>        open console and type:- <br>" var x = localStorage.getItem("v");<br>
+for(var i=1;i<=x;i++)<br>{
+console.log(localStorage.getItem("u"+i));
+} "<br> ....then press ENTER</i></p>
+</body>
+<script type="text/javascript">
+
+     var a=1;
+     //fun start...
+	function myFunction(){
+      if(document.querySelector("#myInput").value == "" || document.querySelector("#myComment").value == "" || document.querySelector("#rate").value == 0 )
+      {
+      	alert("PLEASE FILL");
+      }
+      else{
+
+       var myli = document.createElement("li");
+var num = document.querySelector("#rate").value;
+
+      if(num==1)
+      	{myli.className="One"; }
+      else if(num==2)
+      	{myli.className="Two"; }
+      else if(num==3)
+      	{myli.className="Three"; }
+     else if(num==4)
+      	{myli.className="Four"; }
+      else
+      	{myli.className="Five"; }
+      //Saving UserName in Local Storage ...................
+       //Recording all th inputs
+     var readText = document.querySelector("#myInput").value;
+     var readFeed = document.querySelector("#myComment").value; var num = document.querySelector("#rate").value;
+//Storing all the inputs
+if(localStorage.getItem("v") != null)
+     	    {
+     	    		var i =  localStorage.getItem("v");
+     	   
+                i++;
+                
+            var data = "USERNAME:- "+ readText + "|  Comment:-" + readFeed + "|  Rating:- " + num; 
+
+            localStorage.setItem("u"+i,data);
+            localStorage.setItem("v",i);
+            i++;
+        }
+        else{
+        	
+        	var i=1;
+        	  var data = "USERNAME:- "+ readText + "|  Comment:-" + readFeed + "|  Rating:- " + num; 
+            localStorage.setItem("u"+i,data);
+            localStorage.setItem("v",i);
+            i++;
+
+        }  
+
+//Storage END.............................
+       var t = document.createTextNode(readText);
+	    var par = document.createElement("p");
+	    par.className="user";
+	    par.appendChild(t);
+	    myli.appendChild(par);
+	     var ul = document.querySelector("#myUL");
+	     ul.appendChild(myli);
+	     
+
+	      var txt = document.createTextNode("\u00D7");
+          var span = document.createElement("span");
+          span.appendChild(txt);
+          span.className = "close";
+          myli.appendChild(span);
+
+          var readFeed = document.querySelector("#myComment").value;
+          //Storing comment to local storage...
+         
+
+          var myDiv = document.createElement("div");
+          myDiv.className = "box";
+          var c = document.createTextNode(readFeed);
+          myDiv.appendChild(c);
+          myli.appendChild(myDiv);
+       
+         //Giving rating 
+      var num = document.querySelector("#rate").value;
+       for(var i=0;i<num;i++)
+  {
+      var span = document.createElement("span");
+      span.innerHTML = "  &#x2764;";
+      
+      // span.className="heart";
+      if(num==1)
+      	{span.className="One"; }
+      else if(num==2)
+      	{span.className="Two"; }
+      else if(num==3)
+      	{span.className="Three"; }
+     else if(num==4)
+      	{span.className="Four"; }
+      else
+      	{span.className="Five"; }
+      myli.appendChild(span);
+  }
+  //Making the value of all input null.....
+   document.querySelector("#myInput").value='';
+   document.querySelector("#myComment").value='';
+   document.querySelector("#rate").value='';
+ 
+ myli.appendChild(document.createElement("hr"));
+
+          
+                                        
+      var close = document.getElementsByClassName("close");
+           for (var i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+
+
+    }
+  }
+       
+
+	}
+
+}
+
+</script>
+</html>
